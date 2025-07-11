@@ -12,16 +12,3 @@ services:
       - /app/node_modules
     env_file:
       - .env.local
-  postgres:
-    image: bitnami/postgresql:latest
-    ports:
-      - '5433:5432'
-    environment:
-      - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=docker
-      - POSTGRES_DB=pizzashop
-    volumes:
-      - postgres_data:/bitnami/postgresql
-
-volumes:
-  postgres_data:

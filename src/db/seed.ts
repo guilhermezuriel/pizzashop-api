@@ -13,6 +13,8 @@ import { db } from './connection'
 import chalk from 'chalk'
 import { orderItems } from './schema/order-items'
 import { createId } from '@paralleldrive/cuid2'
+import fs from 'node:fs'
+import path from 'node:path'
 
 /**
  * Reset database
