@@ -38,6 +38,7 @@ const app = new Elysia()
         const origin = request.headers.get('origin')
         console.log(`CORS request from origin: ${origin}`)
         const allowedOrigins = [env.AUTH_REDIRECT_URL]
+        console.log(`Allowed origins: ${allowedOrigins.includes(origin || '')}`)
         return allowedOrigins.includes(origin || '')
       },
     }),
