@@ -12,4 +12,4 @@ RUN chmod +x /usr/local/bin/wait-for-it
 
 EXPOSE 3333
 
-CMD ["sh", "-c", "/usr/local/bin/wait-for-it postgres:5432 -- bun migrate && bun seed && bun dev"]
+CMD ["sh", "-c", "bun migrate && bun seed && bun dev"]
