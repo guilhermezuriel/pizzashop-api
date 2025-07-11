@@ -26,6 +26,7 @@ import { getDailyReceiptInPeriod } from './routes/get-daily-receipt-in-period'
 import { getPopularProducts } from './routes/get-popular-products'
 import { dispatchOrder } from './routes/dispatch-order'
 import { deliverOrder } from './routes/deliver-order'
+import { env } from 'node:process'
 
 const app = new Elysia()
   .use(
@@ -35,12 +36,9 @@ const app = new Elysia()
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
       origin: (request): boolean => {
         const origin = request.headers.get('origin')
-
-        if (!origin) {
-          return false
-        }
-
-        return true
+        console.log(`CORS request from origin: ${origin}`)
+        const allowedOrigins = [env.AUTH_REDIRECT_URL]
+        return allowedOrigins.includes(origin || '')
       },
     }),
   )
